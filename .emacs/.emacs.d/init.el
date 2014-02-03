@@ -83,7 +83,7 @@
 	(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
 	        (normal-top-level-add-subdirs-to-load-path))))))
 
-(add-to-load-path "elisp" "conf" "public_repos" "site-lisp")
+;;(add-to-load-path "elisp" "conf" "public_repos" "site-lisp")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -106,3 +106,17 @@
                                               (setq path-to-module (buffer-substring begin end)))
                         (message path-to-module)
                             (find-file path-to-module)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;octave settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(autoload 'octave-mode "octave-mod" nil t)
+(setq-default octave-block-offset 4)
+(setq auto-mode-alist
+           (cons '("\\.m$" . octave-mode) auto-mode-alist))
+(add-hook 'octave-mode-hook
+               (lambda ()
+                 (abbrev-mode 1)
+                 (auto-fill-mode 1)
+                 (if (eq window-system 'x)
+                     (font-lock-mode 1))))
