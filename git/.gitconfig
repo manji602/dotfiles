@@ -1,12 +1,19 @@
-[alias]
-    tr = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
 [user]
-    email = fusui.dreamer@gmail.com
-    name = Jun Hashimoto
+    email = jun.hashimoto.0204@gmail.com
+    name = Jun HASHIMOTO
+[color]
+    ui = auto
+[alias]
+    ad = add
+    br = branch
+    co = checkout
+    ci = commit
+    ft = fetch
+    fp = push -f
+    tr = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
+    st = status
 [core]
     editor = emacs
-[color]
-    ui = true
 [i18n]
     commitencoding = UTF-8
     logoutputencoding = UTF-8
