@@ -3,7 +3,7 @@ dotfiles
 
 ## Description
 
-Repository for configurations of git, screen, tmux, and emacs.
+Repository for configurations of git, bash, screen, tmux, and emacs.
 
 ## Install
 
