@@ -10,6 +10,53 @@
 (prefer-coding-system 'utf-8-unix)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;package
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(package-initialize)
+;; refresh packages if needed
+;;(package-refresh-contents)
+
+;; install packages for me
+(defvar my/install-packages
+  '(
+    ;; environments
+    init-loader
+    auto-complete
+    ;;; git
+    magit git-gutter
+
+    ;; languages
+    ;;; coffeescript
+    coffee-mode
+    ;;; go
+    go-mode
+    ;;; hive
+    hive
+    ;;; html
+    ac-html-bootstrap
+    ;;; javascript
+    js2-mode
+    ;;; json
+    json-mode
+    ;;; objective-c
+    objc-font-lock
+    ;;; perl
+    perl-mode
+    ;;; php
+    php-mode
+    ;;; ruby
+    ruby-mode
+    ;;; swift
+    ;;swift-mode for > emacs 24.4
+    ))
+
+(dolist (package my/install-packages)
+  (unless (package-installed-p package)
+    (package-install package)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;buffer settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;display total line of file
@@ -58,8 +105,6 @@
                                )))
 (ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
 (ad-activate 'font-lock-mode)
-;;default tab->white spaces*4
-(setq-default tab-width 4 indent-tabs-mode nil)
 ;;not make backupfiles
 (setq backup-inhibited t)
 ;;coloring with grammar
@@ -68,55 +113,3 @@
 (display-time-mode t)
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;path settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;load-path
-(add-to-list 'load-path "~/site-lisp/")
-(defvar user-emacs-directory "~/.emacs.d/")
-(defun add-to-load-path (&rest paths)
-  (let (path)
-    (dolist (path paths paths)
-      (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
-	(add-to-list 'load-path default-directory)
-	(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-	        (normal-top-level-add-subdirs-to-load-path))))))
-
-;;(add-to-load-path "elisp" "conf" "public_repos" "site-lisp")
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;perl settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;open module by focasing module namespace with M-.
-(defun  perl-find-module ()
-    (interactive)
-      (let
-                (end begin module path-to-module)
-            (save-excursion
-                    (setq begin (save-excursion (skip-chars-backward "a-zA-Z0-9_:") (point)))
-                          (setq end (save-excursion (skip-chars-forward "a-zA-Z0-9_:") (point)))
-                                (setq module (buffer-substring begin end)))
-                (shell-command (concat "perldoc -lm " module) "*perldoc*")
-                    (save-window-excursion
-                            (switch-to-buffer "*perldoc*")
-                                  (setq end (point))
-                                        (setq begin (save-excursion (beginning-of-line) (point)))
-                                              (setq path-to-module (buffer-substring begin end)))
-                        (message path-to-module)
-                            (find-file path-to-module)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;octave settings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(autoload 'octave-mode "octave-mod" nil t)
-(setq-default octave-block-offset 4)
-(setq auto-mode-alist
-           (cons '("\\.m$" . octave-mode) auto-mode-alist))
-(add-hook 'octave-mode-hook
-               (lambda ()
-                 (abbrev-mode 1)
-                 (auto-fill-mode 1)
-                 (if (eq window-system 'x)
-                     (font-lock-mode 1))))

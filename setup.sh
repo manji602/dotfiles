@@ -24,10 +24,17 @@ for ((i = 0;i < ${#BASH_FILES[*]}; i++)) {
     ln -Fisv "$PWD/bash/${BASH_FILES[$i]}" $HOME
 }
 
-
 ## setup screen config
 
 ## setup tmux config
 
 ## setup emacs config
 
+EMACS_FILES=(".emacs.d")
+
+for ((i = 0;i < ${#EMACS_FILES[*]}; i++)) {
+    if [ ! -e $HOME/${EMACS_FILES[$i]} ]; then
+        mv $HOME/${EMACS_FILES[$i]} $HOME/"${EMACS_FILES[$i]}.old"
+    fi
+    ln -Fisv "$PWD/emacs/${EMACS_FILES[$i]}" $HOME
+}
