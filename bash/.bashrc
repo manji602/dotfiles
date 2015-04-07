@@ -6,3 +6,10 @@ export PS1='\[\033[0;35m\]\u@\h\[\033[0m\] \[\033[0;36m\]\W\[\033[0m\] \[\033[40
 function git_branch() {
   echo $(git branch --no-color 2>/dev/null | sed -ne "s/^\* \(.*\)$/\1/p")
 }
+
+#########################################
+#other settings
+#########################################
+
+# git branch completion
+source ~/.git-completion.bash

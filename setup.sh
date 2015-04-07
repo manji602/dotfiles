@@ -2,8 +2,8 @@
 
 cd "$(dirname "$0")"
 
-TARGETS=(".gitconfig" ".gitignore" ".bashrc" ".screenrc" ".tmux.conf" ".emacs.d")
-RESOURCES=("git/.gitconfig" "git/.gitignore" "bash/.bashrc" "screen/.screenrc" "tmux/.tmux.conf" "emacs/.emacs.d")
+TARGETS=(".gitconfig" ".gitignore" ".git-completion.bash" ".bashrc" ".screenrc" ".tmux.conf" ".emacs.d")
+RESOURCES=("git/.gitconfig" "git/.gitignore" "git/.git-completion.bash" "bash/.bashrc" "screen/.screenrc" "tmux/.tmux.conf" "emacs/.emacs.d")
 
 for ((i = 0;i < ${#TARGETS[*]}; i++)) {
     if [ -f $HOME/${TARGETS[$i]} -o -d $HOME/${TARGETS[$i]} ]; then
