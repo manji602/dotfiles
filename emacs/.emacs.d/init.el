@@ -52,7 +52,7 @@
     ;;; php
     php-mode
     ;;; ruby
-    ruby-mode
+    ruby-mode ruby-end ruby-block
     ;;; swift
     ;;swift-mode for > emacs 24.4
     ))
@@ -60,6 +60,11 @@
 (dolist (package my/install-packages)
   (unless (package-installed-p package)
     (package-install package)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;auto-complete settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-auto-complete-mode t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;buffer settings

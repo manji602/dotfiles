@@ -10,6 +10,11 @@ function git_branch() {
 #########################################
 #other settings
 #########################################
+# anyenv
+if [ -d $HOME/.anyenv ] ; then
+    export PATH="$HOME/.anyenv/bin:$PATH"
+    eval "$(anyenv init -)"
+fi
 
 # git branch completion
 source ~/.git-completion.bash
