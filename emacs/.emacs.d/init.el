@@ -123,3 +123,6 @@
 (display-time-mode t)
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
+;;ignore symbolic confirm dialog
+(setq vc-follow-symlinks t)
+
