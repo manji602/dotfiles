@@ -12,7 +12,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;theme
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(load-theme 'deeper-blue t)
+;;(load-theme 'deeper-blue t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;package
@@ -45,6 +45,8 @@
     js2-mode
     ;;; json
     json-mode
+    ;;; markdown
+    markdown-mode markdown-mode+
     ;;; objective-c
     objc-font-lock
     ;;; perl
@@ -53,6 +55,8 @@
     php-mode
     ;;; ruby
     ruby-mode ruby-end ruby-block
+    ;;; scss
+    scss-mode
     ;;; swift
     ;;swift-mode for > emacs 24.4
     ))
