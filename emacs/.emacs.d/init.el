@@ -99,19 +99,14 @@
 ;;different display style on same name file
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+
 ;;highlight on current line
-(defface hlline-face
-    '((((class color)
-              (background dark))
-            (:background "#FFc0CB"))
-          (((class color)
-                  (background light))
-                (:background  "#FFC0CB"))
-              (t
-                    ()))
-      "*Face used by hl-line.")
-(setq hl-line-face 'hlline-face)
-(global-hl-line-mode)
+(global-hl-line-mode t)
+(set-face-background 'hl-line "grey37")
+;;highlight brackets
+(show-paren-mode t)
+(setq show-paren-style 'parenthesis)
+
 ;;show tab, zenkaku-space, white spaces at end of line
 (defface my-face-tab         '((t (:background "Yellow"))) nil :group 'my-faces)
 (defface my-face-zenkaku-spc '((t (:background "LightBlue"))) nil :group 'my-faces)
