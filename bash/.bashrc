@@ -19,6 +19,20 @@ fi
 # git branch completion
 source ~/.git-completion.bash
 
+# setup ssh-agent
+if [ -f ~/.ssh-agent ]; then
+    . ~/.ssh-agent
+fi
+if [ -z "$SSH_AGENT_PID" ] || ! kill -0 $SSH_AGENT_PID; then
+    ssh-agent > ~/.ssh-agent
+    . ~/.ssh-agent
+fi
+
+ssh_agent_keys=`ssh-add -l | wc -l`
+if [ $ssh_agent_keys -eq 0 ]; then
+    find ~/.ssh | egrep -v '.pub|known_hosts|config' | xargs sudo ssh-add
+fi
+
 # auto load tmux
 if [ -z "$TMUX" -a -z "$STY" ]; then
     if type tmuxx >/dev/null 2>&1; then
@@ -33,13 +47,3 @@ if [ -z "$TMUX" -a -z "$STY" ]; then
         screen -rx || screen -D -RR
     fi
 fi
-
-# setup ssh-agent
-if [ -f ~/.ssh-agent ]; then
-    . ~/.ssh-agent
-fi
-if [ -z "$SSH_AGENT_PID" ] || ! kill -0 $SSH_AGENT_PID; then
-    ssh-agent > ~/.ssh-agent
-    . ~/.ssh-agent
-fi
-find $HOME/.ssh | egrep -v '.pub|known_hosts|config' | xargs sudo ssh-add
