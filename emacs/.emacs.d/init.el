@@ -59,6 +59,8 @@
     scss-mode
     ;;; swift
     ;;swift-mode for > emacs 24.4
+    ;;; yaml
+    yaml-mode
     ))
 
 (dolist (package my/install-packages)
@@ -81,6 +83,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;open rake file with ruby-mode
 (setq auto-mode-alist (cons '("\\.rake$" . ruby-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
+;;open yml file with yaml-mode
+(setq auto-mode-alist (cons '("\\.yml" . yaml-mode) auto-mode-alist))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;buffer settings
@@ -101,8 +107,8 @@
 (setq uniquify-buffer-name-style 'forward)
 
 ;;highlight on current line
-(global-hl-line-mode t)
-(set-face-background 'hl-line "grey37")
+;;(global-hl-line-mode t)
+;;(set-face-background 'hl-line "grey37")
 ;;highlight brackets
 (show-paren-mode t)
 (setq show-paren-style 'parenthesis)
