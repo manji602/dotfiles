@@ -2,12 +2,46 @@
 
 cd "$(dirname "$0")"
 
-TARGETS=(".gitconfig" ".gitignore" ".git-completion.bash" ".bashrc" ".screenrc" ".tmux.conf" ".emacs.d")
-RESOURCES=("git/.gitconfig" "git/.gitignore" "git/.git-completion.bash" "bash/.bashrc" "screen/.screenrc" "tmux/.tmux.conf" "emacs/.emacs.d")
+TARGETS=(
+".gitconfig"
+".gitignore"
+".git-completion.bash"
+".bashrc"
+".screenrc"
+".tmux.conf"
+".emacs.d/init.el"
+)
+
+RESOURCES=(
+"git/.gitconfig"
+"git/.gitignore"
+"git/.git-completion.bash"
+"bash/.bashrc"
+"screen/.screenrc"
+"tmux/.tmux.conf"
+"emacs/.emacs.d/init.el"
+)
+
+OLD_DOTFILES_DIR="dotfiles-old"
+CURRENT_TIMESTAMP=`date '+%Y%m%d_%H:%M:%S'`
+
+if [ ! -d $HOME/$OLD_DOTFILES_DIR ]; then
+    mkdir $HOME/$OLD_DOTFILES_DIR
+fi
+
+if [ ! -d $HOME/.emacs.d ]; then
+    mkdir $HOME/.emacs.d
+fi
 
 for ((i = 0;i < ${#TARGETS[*]}; i++)) {
+
     if [ -f $HOME/${TARGETS[$i]} -o -d $HOME/${TARGETS[$i]} ]; then
-        mv -v $HOME/${TARGETS[$i]} $HOME/"${TARGETS[$i]}.old"
-	ln -Fisv "$PWD/${RESOURCES[$i]}" $HOME
+        if [ -L $HOME/${TARGETS[$i]} ]; then
+            unlink $HOME/${TARGETS[$i]}
+        else
+            mv -f $HOME/${TARGETS[$i]} $HOME/$OLD_DOTFILES_DIR/${TARGETS[$i]}.$CURRENT_TIMESTAMP
+        fi
     fi
+
+    ln -Fisv "$PWD/${RESOURCES[$i]}" $HOME
 }
