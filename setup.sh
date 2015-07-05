@@ -9,7 +9,7 @@ TARGETS=(
 ".bashrc"
 ".screenrc"
 ".tmux.conf"
-".emacs.d/init.el"
+".emacs.d"
 )
 
 RESOURCES=(
@@ -19,7 +19,7 @@ RESOURCES=(
 "bash/.bashrc"
 "screen/.screenrc"
 "tmux/.tmux.conf"
-"emacs/.emacs.d/init.el"
+"emacs/.emacs.d"
 )
 
 OLD_DOTFILES_DIR="dotfiles-old"
