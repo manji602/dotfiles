@@ -1,3 +1,7 @@
+;;; init.el --- configuration for emacs
+;; Author: Jun HASHIMOTO
+;;; Code:
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;language settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -27,13 +31,18 @@
 (defvar my/install-packages
   '(
     ;; environments
-    init-loader
     auto-complete
-    ;;; git
-    magit git-gutter
-
-    ;; syntax-check
     flycheck
+    fringe-helper
+    hlinum
+    init-loader
+    smooth-scroll
+    undohist
+
+    ;; git
+    magit
+    gitconfig-mode
+    gitignore-mode
 
     ;; languages
     ;;; coffeescript
@@ -49,7 +58,8 @@
     ;;; json
     json-mode
     ;;; markdown
-    markdown-mode markdown-mode+
+    markdown-mode
+    markdown-mode+
     ;;; objective-c
     objc-font-lock
     ;;; perl
@@ -57,11 +67,15 @@
     ;;; php
     php-mode
     ;;; ruby
-    ruby-mode ruby-end ruby-block
+    ruby-mode
+    ruby-end
+    ruby-block
     ;;; scss
     scss-mode
     ;;; swift
     ;;swift-mode for > emacs 24.4
+    ;;; web
+    web-mode
     ;;; yaml
     yaml-mode
     ))
@@ -103,20 +117,27 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;buffer settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;;display total line of file
 (column-number-mode 1)
+
 ;;display line number
 (global-linum-mode t)
 (setq linum-format "%d ")
+(require 'hlinum)
+
 ;;completion without large capital
 (setq completion-ignore-case t)
+
 ;;bug fix for ansi color
 (autoload 'ansi-color-for-comint-mode-on "ansi-color"
             "Set `ansi-color-for-comint-mode' to t." t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
 ;;indent
 (setq-default c-basic-offset 4)
 (setq-default tab-width 4 indent-tabs-mode nil)
+
 ;;different display style on same name file
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
@@ -147,14 +168,20 @@
                                )))
 (ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
 (ad-activate 'font-lock-mode)
+
 ;;not make backupfiles
 (setq backup-inhibited t)
+
 ;;coloring with grammar
 (global-font-lock-mode t)
+
 ;;show clock
 (display-time-mode t)
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
+
 ;;ignore symbolic confirm dialog
 (setq vc-follow-symlinks t)
 
+(provide 'init)
+;;; init.el ends here
