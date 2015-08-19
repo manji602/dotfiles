@@ -22,8 +22,9 @@
 ;;package
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
+(require 'melpa)
 ;; refresh packages if needed
 ;;(package-refresh-contents)
 
@@ -92,11 +93,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;flycheck settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(add-hook 'ruby-mode-hook
-          '(lambda ()
-             (setq flycheck-checker 'ruby-rubocop)
-             (flycheck-mode 1)))
+;;(add-hook 'after-init-hook #'global-flycheck-mode)
+;;(add-hook 'ruby-mode-hook
+;;          '(lambda ()
+;;             (setq flycheck-checker 'ruby-rubocop)
+;;             (flycheck-mode 1)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;perl settings
@@ -112,7 +113,8 @@
 (setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
 ;;open yml file with yaml-mode
 (setq auto-mode-alist (cons '("\\.yml" . yaml-mode) auto-mode-alist))
-
+;;open erb file with web-mode
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;buffer settings
