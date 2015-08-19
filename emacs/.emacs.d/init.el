@@ -22,9 +22,8 @@
 ;;package
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
-(require 'melpa)
 ;; refresh packages if needed
 ;;(package-refresh-contents)
 
@@ -33,7 +32,7 @@
   '(
     ;; environments
     auto-complete
-    flycheck
+    ;;flycheck
     fringe-helper
     hlinum
     init-loader
@@ -41,7 +40,6 @@
     undohist
 
     ;; git
-    magit
     gitconfig-mode
     gitignore-mode
 
@@ -93,11 +91,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;flycheck settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;(add-hook 'after-init-hook #'global-flycheck-mode)
-;;(add-hook 'ruby-mode-hook
-;;          '(lambda ()
-;;             (setq flycheck-checker 'ruby-rubocop)
-;;             (flycheck-mode 1)))
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (setq flycheck-checker 'ruby-rubocop)
+             (flycheck-mode 1)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;perl settings
