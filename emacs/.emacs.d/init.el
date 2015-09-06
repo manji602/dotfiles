@@ -107,9 +107,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;ruby settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;open rake file with ruby-mode
+;;open below files with ruby-mode
 (setq auto-mode-alist (cons '("\\.rake$" . ruby-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("Rakefile$" . ruby-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("Gemfile$" . ruby-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("Capfile$" . ruby-mode) auto-mode-alist))
 ;;open yml file with yaml-mode
 (setq auto-mode-alist (cons '("\\.yml" . yaml-mode) auto-mode-alist))
 ;;open erb file with web-mode
