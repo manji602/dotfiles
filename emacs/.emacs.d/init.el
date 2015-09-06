@@ -92,16 +92,17 @@
 ;;flycheck settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'after-init-hook #'global-flycheck-mode)
-(add-hook 'ruby-mode-hook
-          '(lambda ()
-             (setq flycheck-checker 'ruby-rubocop)
-             (flycheck-mode 1)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;perl settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;open test file with perl-mode
 (setq auto-mode-alist (cons '("\\.t$" . perl-mode) auto-mode-alist))
+;;highlight over 80 characters on 1 line
+(add-hook 'perl-mode-hook
+  (lambda ()
+    (font-lock-add-keywords nil
+      '(("^[^\n]\\{80\\}\\(.*\\)$" 1 font-lock-warning-face t)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;ruby settings
@@ -113,10 +114,22 @@
 (setq auto-mode-alist (cons '("\\.yml" . yaml-mode) auto-mode-alist))
 ;;open erb file with web-mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+;;highlight over 80 characters on 1 line
+(add-hook 'ruby-mode-hook
+  (lambda ()
+    (font-lock-add-keywords nil
+      '(("^[^\n]\\{80\\}\\(.*\\)$" 1 font-lock-warning-face t)))))
+;;flycheck configuration
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (setq flycheck-checker 'ruby-rubocop)
+             (flycheck-mode 1)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;buffer settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;apply fringe
+;;(fringe-mode '(1 . 0))
 
 ;;display total line of file
 (column-number-mode 1)
