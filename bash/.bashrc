@@ -47,3 +47,14 @@ if [ -z "$TMUX" -a -z "$STY" ]; then
         screen -rx || screen -D -RR
     fi
 fi
+
+# ==============================================================================
+# load config with OS type
+# ==============================================================================
+if [ "$(uname)" == 'Darwin' ]; then
+    [ -f ~/.bashrc.osx ] && source ~/.bashrc.osx
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+    [ -f ~/.bashrc.linux ] && source ~/.bashrc.linux
+else
+  exit 1
+fi
