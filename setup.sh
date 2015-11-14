@@ -10,6 +10,10 @@ TARGETS=(
 ".screenrc"
 ".tmux.conf"
 ".emacs.d"
+".zshrc"
+".zshrc.custom"
+".zshrc.osx"
+".zsh.d"
 )
 
 RESOURCES=(
@@ -20,6 +24,10 @@ RESOURCES=(
 "screen/.screenrc"
 "tmux/.tmux.conf"
 "emacs/.emacs.d"
+"zsh/.zshrc"
+"zsh/.zshrc.custom"
+"zsh/.zshrc.osx"
+"zsh/.zsh.d"
 )
 
 OLD_DOTFILES_DIR="dotfiles-old"

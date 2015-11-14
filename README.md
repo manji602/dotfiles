@@ -8,7 +8,7 @@ Repository for configurations of git, bash, screen, tmux, and emacs.
 ## Install
 
 ```
-$ sh ./setup.sh
+$ ./setup.sh
 ```
 
 ## Author
