@@ -117,8 +117,8 @@
 
 ;;open yml file with yaml-mode
 (setq auto-mode-alist (cons '("\\.yml" . yaml-mode) auto-mode-alist))
-;;open erb file with web-mode
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+;;open erb file with html-mode
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . html-mode))
 ;;highlight over 80 characters on 1 line
 (add-hook 'ruby-mode-hook
   (lambda ()
