@@ -12,10 +12,10 @@ fi
 # ==============================================================================
 case "${OSTYPE}" in
     darwin*)
-    [ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
+    [ -f ~/.zshrc.osx ] && source ~/.zshrc.osx
     ;;
     linux*)
-    [ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
+    [ -f ~/.zshrc.linux ] && source ~/.zshrc.linux
     ;;
 esac
 
