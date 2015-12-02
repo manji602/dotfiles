@@ -1,4 +1,5 @@
 emacs/.emacs.d/elpa
 emacs/.emacs.d/auto-save-list
 emacs/.emacs.d/ac-comphist.dat
+emacs/.emacs.d/conf/custom-init.el
 .zshrc.local
