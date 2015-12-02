@@ -91,13 +91,23 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;flycheck settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'after-init-hook #'global-flycheck-mode)
+;;(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;web-mode settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset   2))
+(add-hook 'web-mode-hook 'web-mode-hook)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;perl settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;open test file with perl-mode
 (setq auto-mode-alist (cons '("\\.t$" . perl-mode) auto-mode-alist))
+;;open tmpl file with web-mode
+(add-to-list 'auto-mode-alist '("\\.tmpl\\'" . web-mode))
 ;;highlight over 80 characters on 1 line
 (add-hook 'perl-mode-hook
   (lambda ()
