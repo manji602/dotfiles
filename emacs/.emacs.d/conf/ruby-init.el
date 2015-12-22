@@ -13,11 +13,16 @@
 (setq auto-mode-alist (cons '("\\.yml" . yaml-mode) auto-mode-alist))
 ;;open erb file with html-mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . html-mode))
+
+;;disable magic comment
+(setq ruby-insert-encoding-magic-comment nil)
+
 ;;highlight over 80 characters on 1 line
 (add-hook 'ruby-mode-hook
   (lambda ()
     (font-lock-add-keywords nil
       '(("^[^\n]\\{80\\}\\(.*\\)$" 1 font-lock-warning-face t)))))
+
 ;;flycheck configuration
 (add-hook 'ruby-mode-hook
           '(lambda ()
