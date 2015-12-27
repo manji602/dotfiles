@@ -7,6 +7,7 @@
 ;; ==============================================================================
 (setq load-path (append '("~/.emacs.d/conf") load-path))
 
+(load "autoinsert-init")
 (load "general-init")
 (load "package-init")
 (load "perl-init")
