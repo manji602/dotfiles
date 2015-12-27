@@ -1,5 +1,5 @@
 ;;; init.el --- configuration for emacs
-;; Author: Jun HASHIMOTO
+;; Author: Jun Hashimoto
 ;;; Code:
 
 ;; ==============================================================================
@@ -14,10 +14,7 @@
 (load "visual-init")
 
 ;; if you want custom settings, please write in ~/.emacs.d/conf/custom-init.el
-(if (file-exists-p "~/.emacs.d/conf/custom-init.el")
-    (load "custom-init")
-  'custom conf file is nil
-)
+(when (file-exists-p "~/.emacs.d/conf/custom-init.el") (load "custom-init"))
 
 (provide 'init)
 ;;; init.el ends here
