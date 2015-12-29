@@ -47,6 +47,8 @@
     perl-mode
     ;;; php
     php-mode
+    ;;; python
+    python-mode
     ;;; ruby
     ruby-mode
     ruby-end
@@ -76,3 +78,11 @@
   "Hooks for Web mode."
   (setq web-mode-markup-indent-offset   2))
 (add-hook 'web-mode-hook 'web-mode-hook)
+
+;; python-mode settings
+(add-hook 'python-mode-hook
+  '(lambda ()
+     (setq python-indent 4)
+     (setq indent-tabs-mod nil)
+     (define-key (current-local-map) "\C-h" 'python-backspace)
+))
