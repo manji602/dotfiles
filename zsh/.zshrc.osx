@@ -10,6 +10,19 @@ if [ -d /usr/local/share/zsh-completions ] ; then
 fi
 
 # ==============================================================================
+# ssh-agent
+# ==============================================================================
+
+# add ssh private keys
+num_of_registered_keys=`ssh-add -l | wc -l | tr -d ' '`
+all_keys=`ls -l ~/.ssh/ | tr -s ' ' | cut -d ' ' -f 9 | grep -v config | grep -v .pub | grep -v known_hosts | grep -v authorized_keys | grep -v old | sed '/^$/d'`
+num_of_all_keys=`echo $all_keys | wc -l | tr -d ' '`
+
+if [ $num_of_registered_keys -ne $num_of_all_keys ]; then
+   echo $all_keys | xargs -I {} sudo ssh-add -m ~/.ssh/{}
+fi
+
+# ==============================================================================
 # compinit
 # ==============================================================================
 autoload -Uz compinit
