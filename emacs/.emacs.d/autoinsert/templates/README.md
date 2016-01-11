@@ -1,4 +1,4 @@
-sample
+%directory%
 ===
 
 ## Description
