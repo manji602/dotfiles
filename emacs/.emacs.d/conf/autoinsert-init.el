@@ -28,6 +28,7 @@
       (nconc '(
                ("README.md$" . ["README.md" autoinsert-template])
                ("LICENSE.txt$" . ["LICENSE.txt" autoinsert-template])
+               (".pm$" . ["perl-module.pm"])
                ) auto-insert-alist))
 (require 'cl)
 
