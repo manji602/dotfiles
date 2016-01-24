@@ -7,10 +7,16 @@
 
 (defvar template-list
   '(
-    ("%directory%" . (lambda () (file-name-directory (buffer-file-name))))
+    ("%directory%" . (lambda () (current-directory)))
     ("%year%" . (lambda () (format-time-string "%Y" (current-time))))
     ("%author%" . (lambda () "Jun Hashimoto"))
     )
+)
+
+(defun current-directory()
+  (setq full-path (file-name-directory (buffer-file-name)))
+  (string-match "\\/\\([^\\/]*\\)\\/$" full-path)
+  (match-string 1 full-path)
 )
 
 (defun autoinsert-template ()
