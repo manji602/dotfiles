@@ -5,6 +5,7 @@ cd "$(dirname "$0")"
 TARGETS=(
 ".gitconfig"
 ".gitignore"
+".gitmessage"
 ".git-completion.bash"
 ".bashrc"
 ".bashrc.osx"
@@ -20,6 +21,7 @@ TARGETS=(
 RESOURCES=(
 "git/.gitconfig"
 "git/.gitignore"
+"git/.gitmessage"
 "git/.git-completion.bash"
 "bash/.bashrc"
 "bash/.bashrc.osx"

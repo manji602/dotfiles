@@ -1,0 +1,18 @@
+
+# commit message hints:
+# Thanks for qiita entry
+# http://qiita.com/shi_chicken/items/a5f922a3ef3aa58a1839
+# http://qiita.com/sagaraya/items/60e983856e16dc571f22
+# [verb]
+# use / make / move / don't / check / change / allow / cleanup
+# [sentence example]
+# Fix link to the spec
+# add .js to import
+# Remove duplication in render function
+# Change syntax to use dots
+# update History.md for #1563
+# Add support for callbacks
+# Move fix_fname from buffer.c
+# change rm usage in docs
+# Set release date for 0.10.1
+# avoid method call to compact

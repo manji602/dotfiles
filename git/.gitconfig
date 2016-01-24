@@ -3,6 +3,8 @@
     name = Jun Hashimoto
 [color]
     ui = auto
+[commit]
+    template = ~/.gitmessage
 [alias]
     ad = add
     br = branch
