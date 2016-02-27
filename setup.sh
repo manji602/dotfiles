@@ -45,6 +45,11 @@ if [ ! -d $HOME/.emacs.d ]; then
     mkdir $HOME/.emacs.d
 fi
 
+# install tpm(tmux plugin manager)
+if [ ! -d $HOME/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 for ((i = 0;i < ${#TARGETS[*]}; i++)) {
 
     if [ -f $HOME/${TARGETS[$i]} -o -d $HOME/${TARGETS[$i]} ]; then

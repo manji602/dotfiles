@@ -12,7 +12,12 @@ Repository for configurations of below packages:
 
 ## Requirement
 
-* [prezto](https://github.com/sorin-ionescu/prezto)
+* zsh
+  * [prezto](https://github.com/sorin-ionescu/prezto)
+
+* tmux
+  * 1.9~
+  * tpm (will be installed in setup scripts)
 
 ## Install
 
