@@ -14,6 +14,7 @@ TARGETS=(
 ".emacs.d"
 ".zshrc"
 ".zshrc.custom"
+".zshrc.linux"
 ".zshrc.osx"
 ".zsh.d"
 )
@@ -30,6 +31,7 @@ RESOURCES=(
 "emacs/.emacs.d"
 "zsh/.zshrc"
 "zsh/.zshrc.custom"
+"zsh/.zshrc.linux"
 "zsh/.zshrc.osx"
 "zsh/.zsh.d"
 )
