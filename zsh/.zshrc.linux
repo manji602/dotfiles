@@ -3,6 +3,11 @@
 # ==============================================================================
 
 SSH_AGENT_FILE="$HOME/.ssh-agent-info"
+NUM_OF_SSH_AGENT_PROCESS=`ps aux | grep ssh-agent | grep -v grep | wc -l`
+if [ $NUM_OF_SSH_AGENT_PROCESS -eq 0 ]; then
+   rm -f $SSH_AGENT_FILE
+fi
+
 test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE
 if ! ssh-add -l >& /dev/null ; then
   ssh-agent > $SSH_AGENT_FILE
