@@ -28,3 +28,9 @@
           '(lambda ()
              (setq flycheck-checker 'ruby-rubocop)
              (flycheck-mode 1)))
+
+
+;;ignore local-variables warning on ruby-mode
+(custom-set-variables
+ '(safe-local-variable-values (quote ((encoding . utf-8) (ruby-mode . t)))))
+(custom-set-faces)
