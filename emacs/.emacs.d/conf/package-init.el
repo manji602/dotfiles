@@ -28,6 +28,8 @@
     ;; languages
     ;;; coffeescript
     coffee-mode
+    ;;; elixir
+    elixir-mode
     ;;; go
     go-mode
     ;;; hive
