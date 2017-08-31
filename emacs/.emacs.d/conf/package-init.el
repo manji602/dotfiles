@@ -88,3 +88,7 @@
      (setq indent-tabs-mod nil)
      (define-key (current-local-map) "\C-h" 'python-backspace)
 ))
+
+
+;;do not hook rebase-mode
+(setq auto-mode-alist (remove (rassoc 'git-rebase-mode auto-mode-alist) auto-mode-alist))
