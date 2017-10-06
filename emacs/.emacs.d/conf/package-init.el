@@ -89,6 +89,11 @@
      (define-key (current-local-map) "\C-h" 'python-backspace)
 ))
 
+;; js-mode settings
+(add-hook 'js-mode-hook
+  (lambda ()
+  (make-local-variable 'js-indent-level)
+  (setq js-indent-level 2)))
 
 ;;do not hook rebase-mode
 (setq auto-mode-alist (remove (rassoc 'git-rebase-mode auto-mode-alist) auto-mode-alist))
