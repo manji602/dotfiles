@@ -10,7 +10,9 @@
 (load "autoinsert-init")
 (load "general-init")
 (load "package-init")
+(load "mql-init")
 (load "perl-init")
+(load "python-init")
 (load "ruby-init")
 (load "visual-init")
 
