@@ -4,7 +4,7 @@
 
 ;; load packages
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 ;; refresh packages if needed
 ;;(package-refresh-contents)
@@ -59,6 +59,8 @@
     scss-mode
     ;;; swift
     ;;swift-mode for > emacs 24.4
+    ;;; typescript
+    typescript-mode
     ;;; web
     web-mode
     ;;; yaml
@@ -94,6 +96,12 @@
   (lambda ()
   (make-local-variable 'js-indent-level)
   (setq js-indent-level 2)))
+
+;; ts-mode settings
+(setq typescript-indent-level 2)
+
+;; css-mode settings
+(setq css-indent-offset 2)
 
 ;;do not hook rebase-mode
 (setq auto-mode-alist (remove (rassoc 'git-rebase-mode auto-mode-alist) auto-mode-alist))

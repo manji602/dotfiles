@@ -11,8 +11,11 @@
 
 ;;open yml file with yaml-mode
 (setq auto-mode-alist (cons '("\\.yml" . yaml-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.yml.liquid" . yaml-mode) auto-mode-alist))
 ;;open erb file with html-mode
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . html-mode))
+;;open js.erb file with ts-mode
+(add-to-list 'auto-mode-alist '("\\.js.erb\\'" . typescript-mode))
 
 ;;disable magic comment
 (setq ruby-insert-encoding-magic-comment nil)
