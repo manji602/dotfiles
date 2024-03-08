@@ -6,7 +6,8 @@
 (column-number-mode 1)
 
 ;;display line number
-(global-linum-mode t)
+(global-display-line-numbers-mode t)
+;;(global-linum-mode t)
 (setq linum-format "%d ")
 (require 'hlinum)
 

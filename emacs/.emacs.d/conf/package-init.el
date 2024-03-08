@@ -22,12 +22,14 @@
     undohist
 
     ;; git
-    gitconfig-mode
-    gitignore-mode
+    ;;gitconfig-mode
+    ;;gitignore-mode
 
     ;; languages
     ;;; coffeescript
     coffee-mode
+    ;;; dockerfile
+    dockerfile-mode
     ;;; elixir
     elixir-mode
     ;;; go
@@ -42,9 +44,9 @@
     json-mode
     ;;; markdown
     markdown-mode
-    markdown-mode+
+    ;;markdown-mode+
     ;;; objective-c
-    objc-font-lock
+    ;;objc-font-lock
     ;;; perl
     perl-mode
     ;;; php
@@ -54,11 +56,13 @@
     ;;; ruby
     ruby-mode
     ruby-end
-    ruby-block
+    ;;ruby-block
     ;;; scss
     scss-mode
     ;;; swift
     ;;swift-mode for > emacs 24.4
+    ;;; terraform
+    terraform-mode
     ;;; typescript
     typescript-mode
     ;;; web
@@ -78,10 +82,19 @@
 ;;(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; web-mode settings
-(defun web-mode-hook ()
+(defun web-mode-indent-hook ()
   "Hooks for Web mode."
-  (setq web-mode-markup-indent-offset   2))
-(add-hook 'web-mode-hook 'web-mode-hook)
+  (setq js-indent-level 2)
+  (setq web-mode-attr-indent-offset nil)
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-sql-indent-offset 2)
+  (setq web-mode-script-padding 2)
+  (setq indent-tabs-mode nil)
+  (setq tab-width 2)
+)
+(add-hook 'web-mode-hook 'web-mode-indent-hook)
 
 ;; python-mode settings
 (add-hook 'python-mode-hook
